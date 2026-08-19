@@ -1,10 +1,46 @@
 # Firmware Analysis
 
-Relevant documented files:
+This section documents the firmware-level analysis carried out to understand how
+GPS spoofing and jamming status is generated, propagated, and exposed through
+the ArduPilot GPS and DroneCAN software stack.
 
-1. `20003.Status.uavcan` — spoofing and jamming state fields.
-2. `Tools/AP_Periph/gps.cpp` — spoofing-state transmission.
-3. `AP_GPS_DroneCAN.cpp` — spoofing-state reception.
-4. `AP_GPS_UBLOX.cpp` — Mission Planner warning/message handling.
+## Analysis Scope
 
-Only permitted source code or patches should be added here. If internship/company-owned source cannot be published, use summaries, permitted excerpts, pseudocode, or patch descriptions instead.
+The investigation focused on tracing the spoofing-status data flow from the
+GPS/DroneCAN peripheral to the flight controller and finally to the ground
+station interface.
+
+The main areas investigated were:
+
+- GNSS spoofing and jamming status generation
+- DroneCAN GNSS status transmission
+- DroneCAN GPS status reception in ArduPilot
+- Integration of spoofing information with the GPS subsystem
+- Propagation of spoofing status to Mission Planner
+- Differences between the u-blox and DroneCAN GPS processing paths
+
+## Firmware Data Flow
+
+```text
+GNSS / GPS Peripheral
+        │
+        │ GNSS Status
+        ▼
+Tools/AP_Periph/gps.cpp
+        │
+        │ DroneCAN message
+        ▼
+ardupilot_gnss_Status
+        │
+        ▼
+AP_GPS_DroneCAN.cpp
+        │
+        │ Spoofing / Jamming State
+        ▼
+AP_GPS / EKF GPS Data Path
+        │
+        ▼
+MAVLink / GCS Telemetry
+        │
+        ▼
+Mission Planner
