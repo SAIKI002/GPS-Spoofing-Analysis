@@ -26,7 +26,6 @@ The work focused on understanding how spoofing information is detected by the GP
 | Cube Orange+ | Flight controller running ArduPilot |
 | Here4 GPS | GPS + compass module |
 | HackRF One | GPS signal transmission |
-| u-blox receiver | GPS reception and spoofing-status generation |
 
 ## Software and Tools
 
@@ -206,16 +205,5 @@ The objective is to investigate higher spoofing-status cases and verify how the 
 - Firmware changes were therefore investigated across the GPS, AP_Periph, DroneCAN, and Mission Planner reporting paths.
 - Level 0 and Level 1 were verified; higher levels remain under testing.
 
-## Repository Contents
-
-```text
-01-GPS-Spoofing/
-├── README.md
-├── documentation/
-├── firmware-analysis/
-├── diagrams/
-├── screenshots/
-└── testing/
-```
 
 > **Publication note:** Only code, firmware, screenshots, logs, and other material that is permitted for public release should be added to this repository.
