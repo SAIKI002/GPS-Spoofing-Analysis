@@ -6,6 +6,11 @@ This project investigates GPS spoofing detection in an ArduPilot-based navigatio
 
 The work focused on understanding how spoofing information is detected by the GPS receiver, how it is passed through the Here4 firmware and DroneCAN, and how it can ultimately be observed by ArduPilot and Mission Planner.
 
+> **Ownership & attribution**
+>
+> This repository is a technical record of work performed during the internship at **CoE-CNDS, VJTI**. The associated hardware, firmware, proprietary materials, experimental data, and project intellectual property remain the property of **CoE-CNDS / VJTI**, unless otherwise stated. This repository should not be interpreted as a transfer or claim of ownership by the author.
+>
+
 ## Objectives
 
 - Understand GPS spoofing detection in the ArduPilot ecosystem.
@@ -207,19 +212,6 @@ The objective is to investigate higher spoofing-status cases and verify how the 
 
 ---
 
-## Ownership and Attribution
-
-This work was carried out as part of my internship at the
-**Center of Excellence in Complex & Nonlinear Dynamical Systems (CoE-CNDS),
-VJTI**.
-
-The hardware, development platforms, laboratory resources, and
-internship-specific materials used during this work belong to
-**CoE-CNDS, VJTI**. This repository documents my technical analysis,
-learning, and work performed during the internship.
-
-No ownership of CoE-CNDS/VJTI hardware, proprietary firmware, or
-confidential materials is claimed through this repository.
 
 
 > **Publication note:** Only code, firmware, screenshots, logs, and other material that is permitted for public release should be added to this repository.
